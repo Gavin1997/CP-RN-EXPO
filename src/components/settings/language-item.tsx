@@ -1,15 +1,9 @@
-/*
- * @Author: test
- * @Date: 2025-08-22 16:58:28
- * @LastEditTime: 2025-08-22 17:18:08
- * @FilePath: /react-native-template-obytes/src/components/settings/language-item.tsx
- * @Description:
- */
 import * as React from 'react';
 
 import type { OptionType } from '@/components/ui';
 import { Options, useModal } from '@/components/ui';
-import { translate, useSelectedLanguage } from '@/lib';
+import { useSelectedLanguage } from '@/lib';
+import { translate } from '@/lib';
 import type { Language } from '@/lib/i18n/resources';
 
 import { Item } from './item';
@@ -29,7 +23,6 @@ export const LanguageItem = () => {
     () => [
       { label: translate('settings.english'), value: 'en' },
       { label: translate('settings.arabic'), value: 'ar' },
-      { label: translate('settings.zh'), value: 'zh' },
     ],
     []
   );

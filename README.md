@@ -136,4 +136,3 @@ If you have any questions about the starter and want answers, please check out t
 ## 🔖 License
 
 This project is MIT licensed.
-# CP-RN-EXPO

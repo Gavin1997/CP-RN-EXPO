@@ -1,10 +1,16 @@
+/*
+ * @Author: test
+ * @Date: 2025-08-23 22:53:16
+ * @LastEditTime: 2025-08-23 23:47:24
+ * @FilePath: /react-native-template-obytes/src/app/(app)/_layout.tsx
+ * @Description:
+ */
 import { Link, Redirect, SplashScreen, Tabs } from 'expo-router';
 import React, { useCallback, useEffect } from 'react';
 
 import { Pressable, Text } from '@/components/ui';
 import {
   Feed as FeedIcon,
-  Movie as MovieIcon,
   Settings as SettingsIcon,
   Style as StyleIcon,
 } from '@/components/ui/icons';
@@ -54,19 +60,10 @@ export default function TabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          title: '设置',
+          title: 'Settings',
           headerShown: false,
           tabBarIcon: ({ color }) => <SettingsIcon color={color} />,
           tabBarButtonTestID: 'settings-tab',
-        }}
-      />
-      <Tabs.Screen
-        name="test"
-        options={{
-          title: 'test',
-          headerShown: false,
-          tabBarIcon: ({ color }) => <MovieIcon color={color} />,
-          tabBarButtonTestID: 'test-tab',
         }}
       />
     </Tabs>

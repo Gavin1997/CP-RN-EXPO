@@ -1,10 +1,3 @@
-/*
- * @Author: test
- * @Date: 2025-08-22 16:58:28
- * @LastEditTime: 2025-08-23 01:23:25
- * @FilePath: /react-native-template-obytes/src/components/ui/index.tsx
- * @Description:
- */
 import { cssInterop } from 'nativewind';
 import Svg from 'react-native-svg';
 

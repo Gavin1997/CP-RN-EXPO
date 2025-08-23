@@ -1,10 +1,3 @@
-/*
- * @Author: test
- * @Date: 2025-08-22 16:58:28
- * @LastEditTime: 2025-08-23 00:14:01
- * @FilePath: /react-native-template-obytes/src/components/login-form.tsx
- * @Description:
- */
 import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 import type { SubmitHandler } from 'react-hook-form';
@@ -16,17 +9,16 @@ import { Button, ControlledInput, Text, View } from '@/components/ui';
 
 const schema = z.object({
   name: z.string().optional(),
-  // email: z
-  //   .string({
-  //     required_error: 'Email is required',
-  //   })
-  //   .email('Invalid email format'),
-  email: z.string().optional(),
+  email: z
+    .string({
+      required_error: 'Email is required',
+    })
+    .email('Invalid email format'),
   password: z
     .string({
       required_error: 'Password is required',
     })
-    .min(3, 'Password must be at least 6 characters'),
+    .min(6, 'Password must be at least 6 characters'),
 });
 
 export type FormType = z.infer<typeof schema>;

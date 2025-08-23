@@ -4,15 +4,8 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@env": [
-        "./src/lib/env.js"
-      ],
-      "@assets/*": [
-        "./assets/*"
-      ]
+      "@/*": ["./src/*"],
+      "@env": ["./src/lib/env.js"]
     },
     "esModuleInterop": true,
     "checkJs": true
@@ -32,7 +25,6 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "nativewind-env.d.ts",
-    "svg.d.ts"
+    "nativewind-env.d.ts"
   ]
 }
