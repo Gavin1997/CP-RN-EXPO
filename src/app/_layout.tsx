@@ -1,4 +1,11 @@
-// Import  global CSS file
+/*
+ * @Author: test
+ * @Date: 2025-08-23 23:49:25
+ * @LastEditTime: 2025-08-25 15:10:06
+ * @FilePath: /react-native-template-obytes/src/app/_layout.tsx
+ * @Description:入口
+ */
+
 import '../../global.css';
 
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
@@ -35,8 +42,11 @@ export default function RootLayout() {
   return (
     <Providers>
       <Stack>
+        {/* 主应用 */}
         <Stack.Screen name="(app)" options={{ headerShown: false }} />
+        {/* 引导页 */}
         <Stack.Screen name="onboarding" options={{ headerShown: false }} />
+        {/* 登录页 */}
         <Stack.Screen name="login" options={{ headerShown: false }} />
       </Stack>
     </Providers>

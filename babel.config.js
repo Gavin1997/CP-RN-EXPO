@@ -12,6 +12,7 @@ module.exports = function (api) {
           root: ['./'],
           alias: {
             '@': './src',
+            '@assets': './assets',
             '@env': './src/lib/env.js',
           },
           extensions: [

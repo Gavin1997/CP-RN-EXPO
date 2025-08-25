@@ -1,6 +1,7 @@
 import { cssInterop } from 'nativewind';
 import Svg from 'react-native-svg';
 
+export * from './animated-tab-icon';
 export * from './button';
 export * from './checkbox';
 export { default as colors } from './colors';
@@ -11,6 +12,7 @@ export * from './list';
 export * from './modal';
 export * from './progress-bar';
 export * from './select';
+export * from './tab-icon';
 export * from './text';
 export * from './utils';
 

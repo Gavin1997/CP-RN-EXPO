@@ -55,7 +55,7 @@ const updateProjectConfig = async (projectName) => {
     encoding: 'utf-8',
   });
   const replaced = contents
-    .replace(/ObytesApp/gi, projectName)
+    .replace(/磕星人cp/gi, projectName)
     .replace(/com.obytes/gi, `com.${projectName.toLowerCase()}`)
     .replace(/obytes/gi, 'expo-owner');
 

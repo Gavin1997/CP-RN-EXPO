@@ -1,4 +1,10 @@
-/* eslint-disable max-lines-per-function */
+/*
+ * @Author: test
+ * @Date: 2025-08-23 22:53:16
+ * @LastEditTime: 2025-08-25 15:07:37
+ * @FilePath: /react-native-template-obytes/app.config.ts
+ * @Description:
+ */
 import type { ConfigContext, ExpoConfig } from '@expo/config';
 import type { AppIconBadgeConfig } from 'app-icon-badge/types';
 
@@ -26,7 +32,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   description: `${Env.NAME} Mobile App`,
   owner: Env.EXPO_ACCOUNT_OWNER,
   scheme: Env.SCHEME,
-  slug: 'obytesapp',
+  slug: '磕星人cp',
   version: Env.VERSION.toString(),
   orientation: 'portrait',
   icon: './assets/icon.png',
@@ -69,7 +75,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     [
       'expo-font',
       {
-        fonts: ['./assets/fonts/Inter.ttf'],
+        fonts: ['./assets/fonts/PingFang_Regular.woff2'],
       },
     ],
     'expo-localization',
