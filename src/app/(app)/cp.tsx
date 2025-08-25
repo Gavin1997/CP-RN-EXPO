@@ -1,18 +1,31 @@
 /*
  * @Author: test
- * @Date: 2025-08-24 00:00:49
- * @LastEditTime: 2025-08-25 21:23:02
+ * @Date: 2025-08-23 23:49:25
+ * @LastEditTime: 2025-08-25 23:50:15
  * @FilePath: /react-native-template-obytes/src/app/(app)/cp.tsx
- * @Description:
+ * @Description:初始路由，当你打开应用或导航到 Web 应用的根 URL 时，它将首先显示。
  */
+
 import React from 'react';
 
-import { ScreenWrapper, Text } from '@/components/ui';
+import { usePosts } from '@/api';
+import { SafeAreaView, ScrollView, Text } from '@/components/ui';
+import { ErrorWrapper } from '@/components/ui/layout/error-warpper';
+import { ScreenWrapper } from '@/components/ui/layout/screen-wrapper';
+export default function Cp() {
+  const { isError } = usePosts();
 
-export default function CP() {
+  if (isError) {
+    return <ErrorWrapper />;
+  }
+
   return (
     <ScreenWrapper>
-      <Text>CP 页面</Text>
+      <ScrollView className="px-4">
+        <SafeAreaView className="flex-1">
+          <Text>资讯页面内容</Text>
+        </SafeAreaView>
+      </ScrollView>
     </ScreenWrapper>
   );
 }

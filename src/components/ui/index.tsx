@@ -1,3 +1,10 @@
+/*
+ * @Author: test
+ * @Date: 2025-08-23 23:49:25
+ * @LastEditTime: 2025-08-25 23:35:08
+ * @FilePath: /react-native-template-obytes/src/components/ui/index.tsx
+ * @Description:
+ */
 import { cssInterop } from 'nativewind';
 import Svg from 'react-native-svg';
 
@@ -11,7 +18,6 @@ export * from './input';
 export * from './list';
 export * from './modal';
 export * from './progress-bar';
-export * from './screen-wrapper';
 export * from './select';
 export * from './tab-icon';
 export * from './text';

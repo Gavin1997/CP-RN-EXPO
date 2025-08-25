@@ -1,15 +1,14 @@
 /*
  * @Author: test
  * @Date: 2025-08-25 22:07:05
- * @LastEditTime: 2025-08-25 22:52:08
- * @FilePath: /react-native-template-obytes/src/components/ui/screen-wrapper.tsx
+ * @LastEditTime: 2025-08-25 23:42:28
+ * @FilePath: /react-native-template-obytes/src/components/ui/layout/screen-wrapper.tsx
  * @Description:
  */
 import * as React from 'react';
-import { ImageBackground, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ImageBackground, StyleSheet } from 'react-native';
 
-import { FocusAwareStatusBar } from './focus-aware-status-bar';
+import { FocusAwareStatusBar } from '@/components/ui';
 
 type ScreenWrapperProps = {
   children: React.ReactNode;
@@ -17,6 +16,7 @@ type ScreenWrapperProps = {
   backgroundSource?: any;
   statusBarHidden?: boolean;
   withSafeArea?: boolean;
+  scrollable?: boolean;
 };
 
 export function ScreenWrapper({
@@ -24,14 +24,7 @@ export function ScreenWrapper({
   withBackground = true,
   backgroundSource = require('@assets/images/app_bg.png'),
   statusBarHidden = false,
-  withSafeArea = true,
 }: ScreenWrapperProps) {
-  const content = withSafeArea ? (
-    <SafeAreaView style={styles.safeArea}>{children}</SafeAreaView>
-  ) : (
-    <View style={styles.container}>{children}</View>
-  );
-
   if (withBackground) {
     return (
       <ImageBackground
@@ -40,7 +33,7 @@ export function ScreenWrapper({
         resizeMode="cover"
       >
         <FocusAwareStatusBar hidden={statusBarHidden} />
-        {content}
+        {children}
       </ImageBackground>
     );
   }
@@ -48,7 +41,7 @@ export function ScreenWrapper({
   return (
     <>
       <FocusAwareStatusBar hidden={statusBarHidden} />
-      {content}
+      {children}
     </>
   );
 }
@@ -58,6 +51,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   safeArea: {
+    flex: 1,
+  },
+  flex: {
     flex: 1,
   },
 });
