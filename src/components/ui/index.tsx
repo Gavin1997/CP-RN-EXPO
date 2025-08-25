@@ -11,6 +11,7 @@ export * from './input';
 export * from './list';
 export * from './modal';
 export * from './progress-bar';
+export * from './screen-wrapper';
 export * from './select';
 export * from './tab-icon';
 export * from './text';

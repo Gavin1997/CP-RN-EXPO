@@ -19,7 +19,7 @@ Follow the following steps:
    - Use shared components from `@/components/ui` in case you need them
    - Component should be accessible and follow the accessibility best practices
    - Prefer using colors from tailwind config
-   - For images, use a placeholder image from `@assets/images/placeholder.png`
+   - For images, use a placeholder image from `@/assets/images/placeholder.png`
    - Animated View doesn't support `className` prop, so you need to use `style` prop instead
 
 ## Example
@@ -42,7 +42,7 @@ export function Title({ text }: TitleProps) {
       <Text className="pr-2 text-2xl">{text}</Text>
       <View className="h-[2px] flex-1 bg-neutral-300" />
       <Image
-        source={require('@assets/images/placeholder.png')}
+        source={require('@/assets/images/placeholder.png')}
         style={{ width: 24, height: 24 }}
         contentFit="contain"
       />

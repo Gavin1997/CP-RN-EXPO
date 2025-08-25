@@ -1,7 +1,7 @@
 /*
  * @Author: test
  * @Date: 2025-08-23 23:49:25
- * @LastEditTime: 2025-08-25 15:10:06
+ * @LastEditTime: 2025-08-25 21:49:51
  * @FilePath: /react-native-template-obytes/src/app/_layout.tsx
  * @Description:入口
  */
@@ -13,7 +13,7 @@ import { ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
@@ -42,7 +42,7 @@ export default function RootLayout() {
   return (
     <Providers>
       <Stack>
-        {/* 主应用 */}
+        {/* app */}
         <Stack.Screen name="(app)" options={{ headerShown: false }} />
         {/* 引导页 */}
         <Stack.Screen name="onboarding" options={{ headerShown: false }} />

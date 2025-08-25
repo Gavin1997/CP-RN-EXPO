@@ -1,3 +1,10 @@
+/*
+ * @Author: test
+ * @Date: 2025-08-23 22:53:16
+ * @LastEditTime: 2025-08-25 21:22:07
+ * @FilePath: /react-native-template-obytes/babel.config.js
+ * @Description:
+ */
 module.exports = function (api) {
   api.cache(true);
   return {

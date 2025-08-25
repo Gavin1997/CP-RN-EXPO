@@ -1,7 +1,7 @@
 /*
  * @Author: test
  * @Date: 2025-08-23 22:53:16
- * @LastEditTime: 2025-08-25 15:07:37
+ * @LastEditTime: 2025-08-25 22:27:55
  * @FilePath: /react-native-template-obytes/app.config.ts
  * @Description:
  */

@@ -1,8 +1,10 @@
+import { BlurView } from 'expo-blur';
 import { Redirect, SplashScreen, Tabs } from 'expo-router';
 import React, { useCallback, useEffect } from 'react';
+import { ImageBackground, Platform, StyleSheet } from 'react-native';
 import { type SvgProps } from 'react-native-svg';
 
-import { TabIcon } from '@/components/ui';
+import { TabIcon, View } from '@/components/ui';
 import {
   Cp,
   CPActive,
@@ -17,29 +19,30 @@ import {
 } from '@/components/ui/icons';
 import { useAuth, useIsFirstTime } from '@/lib';
 
-const tabBarOptions = {
-  tabBarLabelStyle: {
-    fontSize: 12,
-  },
-  tabBarStyle: {
-    height: 70,
-    paddingBottom: 8,
-    paddingTop: 0,
-    borderTopWidth: 0, // 移除顶部边框
-    elevation: 0, // 移除Android阴影
-    shadowOpacity: 0, // 移除iOS阴影
-  },
-  tabBarActiveTintColor: '#333',
-  tabBarActiveTintFontWeight: '500',
-};
+import { tabBarOptions } from './styles';
 
-// Helper function to create tab bar icons with active/inactive states
+// 毛玻璃背景组件
+function TabBarBackground() {
+  return (
+    <BlurView
+      intensity={Platform.OS === 'ios' ? 80 : 50}
+      tint="light"
+      style={{
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor:
+          Platform.OS === 'android'
+            ? 'rgba(255, 255, 255, 0.8)'
+            : 'transparent',
+      }}
+    />
+  );
+}
+
 function getTabBarIcon(
   ActiveIcon: React.ComponentType<SvgProps>,
   InactiveIcon?: React.ComponentType<SvgProps>
 ) {
   return ({ color, focused }: { color: string; focused: boolean }) => {
-    // If no inactive icon is provided, use the active icon with color variation
     if (!InactiveIcon) {
       return <ActiveIcon color={color} />;
     }
@@ -55,6 +58,7 @@ function getTabBarIcon(
   };
 }
 
+// eslint-disable-next-line max-lines-per-function
 export default function TabLayout() {
   const status = useAuth.use.status();
   const [isFirstTime] = useIsFirstTime();
@@ -79,10 +83,16 @@ export default function TabLayout() {
   }
 
   return (
-    <Tabs screenOptions={tabBarOptions}>
+    <Tabs
+      screenOptions={{
+        ...tabBarOptions,
+        tabBarBackground: () => <TabBarBackground />,
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="info"
         options={{
+          headerShown: false,
           title: '资讯',
           tabBarIcon: getTabBarIcon(InfoActive, Info),
         }}
@@ -96,7 +106,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="home"
+        name="index"
         options={{
           title: '主页',
           headerShown: false,
