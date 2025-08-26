@@ -7,8 +7,12 @@ import type {
 } from 'react-hook-form';
 import { useController } from 'react-hook-form';
 import type { TextInputProps } from 'react-native';
-import { I18nManager, StyleSheet, View } from 'react-native';
-import { TextInput as NTextInput } from 'react-native';
+import {
+  I18nManager,
+  StyleSheet,
+  TextInput as NTextInput,
+  View,
+} from 'react-native';
 import { tv } from 'tailwind-variants';
 
 import colors from './colors';
@@ -18,8 +22,11 @@ const inputTv = tv({
   slots: {
     container: 'mb-2',
     label: 'text-grey-100 mb-1 text-lg dark:text-neutral-100',
+    inputContainer: 'relative flex-row items-center',
     input:
-      'mt-0 rounded-xl border-[0.5px] border-neutral-300 bg-neutral-100 px-4 py-3 font-inter text-base  font-medium leading-5 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white',
+      'mt-0 flex-1 rounded-xl border-[0.5px] border-neutral-300 bg-neutral-100 px-4 py-3 font-inter text-base font-medium leading-5 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white',
+    leftIcon: 'absolute left-3 z-10',
+    rightIcon: 'absolute right-3 z-10',
   },
 
   variants: {
@@ -39,11 +46,29 @@ const inputTv = tv({
         input: 'bg-neutral-200',
       },
     },
+    hasLeftIcon: {
+      true: {
+        input: 'pl-12',
+      },
+    },
+    hasRightIcon: {
+      true: {
+        input: 'pr-12',
+      },
+    },
+    variant: {
+      frosted: {
+        input:
+          'rounded-[30px] border border-white/60 bg-white/60 backdrop-blur-[20px]',
+      },
+    },
   },
   defaultVariants: {
     focused: false,
     error: false,
     disabled: false,
+    hasLeftIcon: false,
+    hasRightIcon: false,
   },
 });
 
@@ -51,6 +76,9 @@ export interface NInputProps extends TextInputProps {
   label?: string;
   disabled?: boolean;
   error?: string;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+  variant?: 'default' | 'frosted';
 }
 
 type TRule<T extends FieldValues> =
@@ -72,7 +100,15 @@ interface ControlledInputProps<T extends FieldValues>
     InputControllerType<T> {}
 
 export const Input = React.forwardRef<NTextInput, NInputProps>((props, ref) => {
-  const { label, error, testID, ...inputProps } = props;
+  const {
+    label,
+    error,
+    testID,
+    leftIcon,
+    rightIcon,
+    variant = 'default',
+    ...inputProps
+  } = props;
   const [isFocussed, setIsFocussed] = React.useState(false);
   const onBlur = React.useCallback(() => setIsFocussed(false), []);
   const onFocus = React.useCallback(() => setIsFocussed(true), []);
@@ -83,8 +119,11 @@ export const Input = React.forwardRef<NTextInput, NInputProps>((props, ref) => {
         error: Boolean(error),
         focused: isFocussed,
         disabled: Boolean(props.disabled),
+        hasLeftIcon: Boolean(leftIcon),
+        hasRightIcon: Boolean(rightIcon),
+        variant: variant === 'frosted' ? 'frosted' : undefined,
       }),
-    [error, isFocussed, props.disabled]
+    [error, isFocussed, props.disabled, leftIcon, rightIcon, variant]
   );
 
   return (
@@ -97,20 +136,24 @@ export const Input = React.forwardRef<NTextInput, NInputProps>((props, ref) => {
           {label}
         </Text>
       )}
-      <NTextInput
-        testID={testID}
-        ref={ref}
-        placeholderTextColor={colors.neutral[400]}
-        className={styles.input()}
-        onBlur={onBlur}
-        onFocus={onFocus}
-        {...inputProps}
-        style={StyleSheet.flatten([
-          { writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr' },
-          { textAlign: I18nManager.isRTL ? 'right' : 'left' },
-          inputProps.style,
-        ])}
-      />
+      <View className={styles.inputContainer()}>
+        {leftIcon && <View className={styles.leftIcon()}>{leftIcon}</View>}
+        <NTextInput
+          testID={testID}
+          ref={ref}
+          placeholderTextColor={'#B2B2B4'}
+          className={styles.input()}
+          onBlur={onBlur}
+          onFocus={onFocus}
+          {...inputProps}
+          style={StyleSheet.flatten([
+            { writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr' },
+            { textAlign: I18nManager.isRTL ? 'right' : 'left' },
+            inputProps.style,
+          ])}
+        />
+        {rightIcon && <View className={styles.rightIcon()}>{rightIcon}</View>}
+      </View>
       {error && (
         <Text
           testID={testID ? `${testID}-error` : undefined}

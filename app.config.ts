@@ -1,7 +1,7 @@
 /*
  * @Author: test
  * @Date: 2025-08-23 22:53:16
- * @LastEditTime: 2025-08-25 22:27:55
+ * @LastEditTime: 2025-08-26 15:09:59
  * @FilePath: /react-native-template-obytes/app.config.ts
  * @Description:
  */
@@ -55,7 +55,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   android: {
     adaptiveIcon: {
       foregroundImage: './assets/adaptive-icon.png',
-      backgroundColor: '#2E3C4B',
+      backgroundColor: '#ED99DE',
     },
     package: Env.PACKAGE,
   },
@@ -67,9 +67,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     [
       'expo-splash-screen',
       {
-        backgroundColor: '#2E3C4B',
+        backgroundColor: '#ED99DE',
         image: './assets/splash-icon.png',
-        imageWidth: 150,
+        imageWidth: 250,
       },
     ],
     [

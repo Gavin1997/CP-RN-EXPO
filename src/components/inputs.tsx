@@ -1,8 +1,8 @@
 import React from 'react';
 
 import type { OptionType } from '@/components/ui';
-import { Input, Select, View } from '@/components/ui';
-import { Checkbox, Radio, Switch } from '@/components/ui';
+import { Checkbox, Input, Radio, Select, Switch, View } from '@/components/ui';
+import { Language, Search, Settings } from '@/components/ui/icons';
 
 import { Title } from './title';
 
@@ -19,6 +19,24 @@ export const Inputs = () => {
       <Title text="Form" />
       <View>
         <Input label="Default" placeholder="Lorem ipsum dolor sit amet" />
+        <Input label="Search" placeholder="搜索内容..." leftIcon={<Search />} />
+        <Input
+          label="Settings"
+          placeholder="设置选项"
+          rightIcon={<Settings />}
+        />
+        <Input
+          label="Language"
+          placeholder="选择语言"
+          leftIcon={<Language />}
+          rightIcon={<Settings />}
+        />
+        <Input
+          label="Frosted Glass"
+          placeholder="毛玻璃效果输入框"
+          variant="frosted"
+          leftIcon={<Search />}
+        />
         <Input label="Error" error="This is a message error" />
         <Input label="Focused" />
         <Select

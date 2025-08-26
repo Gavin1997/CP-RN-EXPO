@@ -1,26 +1,26 @@
+/*
+ * @Author: test
+ * @Date: 2025-08-25 18:18:32
+ * @LastEditTime: 2025-08-26 15:03:13
+ * @FilePath: /react-native-template-obytes/src/app/(app)/styles.ts
+ * @Description:
+ */
 import { Platform, StyleSheet } from 'react-native';
 
 export const tabLayoutStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   tabBarStyle: {
-    height: 70,
+    height: 75,
     paddingBottom: 8,
-    paddingTop: 0,
-    borderTopWidth: 0, // 移除顶部边框
-    position: 'absolute',
-    backgroundColor: 'transparent', // 设为透明，让BlurView处理背景
+    borderTopWidth: 0,
+    backgroundColor: 'transparent',
+
     ...Platform.select({
       ios: {
-        shadowColor: 'rgba(0, 0, 0, 0.1)',
-        shadowOffset: { width: 0, height: -2 },
-        shadowOpacity: 1,
-        shadowRadius: 10,
+        backgroundColor: 'transparent',
       },
       android: {
-        elevation: 8,
-        shadowColor: 'rgba(0, 0, 0, 0.1)',
+        backgroundColor: 'transparent',
+        elevation: 0,
       },
     }),
   },
@@ -36,9 +36,4 @@ export const tabBarOptions = {
   tabBarActiveTintFontWeight: '500' as const,
 };
 
-export const styles = StyleSheet.create({
-  container_info: {
-    flex: 1,
-    backgroundColor: '#F0F4FF',
-  },
-});
+export const styles = StyleSheet.create({});

@@ -1,10 +1,10 @@
 import { BlurView } from 'expo-blur';
 import { Redirect, SplashScreen, Tabs } from 'expo-router';
 import React, { useCallback, useEffect } from 'react';
-import { ImageBackground, Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { type SvgProps } from 'react-native-svg';
 
-import { TabIcon, View } from '@/components/ui';
+import { TabIcon } from '@/components/ui';
 import {
   Cp,
   CPActive,
@@ -21,20 +21,10 @@ import { useAuth, useIsFirstTime } from '@/lib';
 
 import { tabBarOptions } from './styles';
 
-// 毛玻璃背景组件
+// Blur background component for tab bar
 function TabBarBackground() {
   return (
-    <BlurView
-      intensity={Platform.OS === 'ios' ? 80 : 50}
-      tint="light"
-      style={{
-        ...StyleSheet.absoluteFillObject,
-        backgroundColor:
-          Platform.OS === 'android'
-            ? 'rgba(255, 255, 255, 0.8)'
-            : 'transparent',
-      }}
-    />
+    <BlurView intensity={100} tint="light" style={StyleSheet.absoluteFill} />
   );
 }
 
@@ -78,15 +68,17 @@ export default function TabLayout() {
   if (isFirstTime) {
     return <Redirect href="/onboarding" />;
   }
-  if (status === 'signOut') {
-    return <Redirect href="/login" />;
-  }
+  // if (status === 'signOut') {
+  //   return <Redirect href="/login" />;
+  // }
 
   return (
     <Tabs
       screenOptions={{
+        animation: 'shift',
         ...tabBarOptions,
         tabBarBackground: () => <TabBarBackground />,
+        tabBarHideOnKeyboard: true,
       }}
     >
       <Tabs.Screen

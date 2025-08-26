@@ -1,8 +1,8 @@
 /*
  * @Author: test
  * @Date: 2025-08-25 23:47:40
- * @LastEditTime: 2025-08-25 23:52:12
- * @FilePath: /react-native-template-obytes/src/components/ui/layout/error-warpper.tsx
+ * @LastEditTime: 2025-08-26 14:17:49
+ * @FilePath: /react-native-template-obytes/src/components/ui/layout/error-wrapper.tsx
  * @Description:
  */
 import { Link } from 'expo-router';

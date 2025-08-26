@@ -21,6 +21,7 @@ export * from './mine-active';
 export * from './movie';
 export * from './movie-active';
 export * from './rate';
+export * from './search';
 export * from './settings';
 export * from './share';
 export * from './style';

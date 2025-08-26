@@ -1,7 +1,7 @@
 /*
  * @Author: test
  * @Date: 2025-08-23 23:49:25
- * @LastEditTime: 2025-08-25 21:49:51
+ * @LastEditTime: 2025-08-26 14:18:36
  * @FilePath: /react-native-template-obytes/src/app/_layout.tsx
  * @Description:入口
  */
@@ -58,7 +58,7 @@ function Providers({ children }: { children: React.ReactNode }) {
   return (
     <GestureHandlerRootView
       style={styles.container}
-      className={theme.dark ? `dark` : undefined}
+      // className={theme.dark ? `dark` : undefined}
     >
       <KeyboardProvider>
         <ThemeProvider value={theme}>
