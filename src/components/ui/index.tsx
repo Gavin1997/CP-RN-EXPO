@@ -1,7 +1,7 @@
 /*
  * @Author: test
  * @Date: 2025-08-23 23:49:25
- * @LastEditTime: 2025-08-25 23:35:08
+ * @LastEditTime: 2025-08-26 15:24:28
  * @FilePath: /react-native-template-obytes/src/components/ui/index.tsx
  * @Description:
  */
@@ -18,6 +18,7 @@ export * from './input';
 export * from './list';
 export * from './modal';
 export * from './progress-bar';
+export * from './safe-area-view';
 export * from './select';
 export * from './tab-icon';
 export * from './text';
@@ -31,7 +32,7 @@ export {
   TouchableOpacity,
   View,
 } from 'react-native';
-export { SafeAreaView } from 'react-native-safe-area-context';
+// SafeAreaView is now exported from ./safe-area-view
 
 //Apply cssInterop to Svg to resolve className string into style
 cssInterop(Svg, {
